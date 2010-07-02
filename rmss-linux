@@ -1,0 +1,4 @@
+#!/bin/sh
+
+#export LD_LIBRARY_PATH=`pwd`/lib/usb:$LD_LIBRARY_PATH
+sudo jruby -J-Djava.library.path=lib/usb bin/rmss.rb
