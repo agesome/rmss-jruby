@@ -19,7 +19,7 @@ $CLASSPATH << "lib/usb"
 require 'java'
 
 class Device
-  java_import 'LowLevelUSB';
+  java_import 'LowLevelUSB'
 
   DEBUG = 0
   def initialize

@@ -13,10 +13,8 @@ class MainGUI
     @shell = Shell.new(@display)
     @shell.layout = FillLayout.new(SWT::NONE)
     @shell.text = WINDOW_NAME
-    # @shell.setBounds(Display.getDefault().getPrimaryMonitor().getBounds());
+    @shell.setBounds(Display.getDefault().getPrimaryMonitor().getBounds());
 
-    @shell.setSize(500, 500)
-    
     @dev = Device.new
     begin
       @dev.connect
@@ -34,7 +32,6 @@ class MainGUI
     @AXGraph = Graph.new(@shell, "acceleration", "time", "value")
     @AYGraph = Graph.new(@shell, "", "time", "value")
     @AZGraph = Graph.new(@shell, "", "time", "value")
-    # @Data = Label.new(@shell, SWT::NONE);
     Thread.new do
       while true
         @display.asyncExec do
@@ -44,9 +41,7 @@ class MainGUI
             puts "disconnect, exiting!"
             exit
           end
-          # puts 't' + @dev.temperature.last.to_s
-          # puts 'h' + @dev.humidity.last.to_s
-          # puts 'a' + @dev.acceleration.last.inspect
+          # puts @dev.temperature.last.to_i.to_s
           @HData << @dev.humidity.last
           @HDgraph.addSeries(@HData, "fi")
           @TData << @dev.temperature.last.to_i
@@ -63,8 +58,7 @@ class MainGUI
             @AZData << value[2].to_i
           end
           @AZGraph.addSeries(@AZData, "z")
-          # @Data.setText("Temperture: #{@dev.temperature.last.to_s}\nHumidity: #{@dev.humidity.last.to_s}\nAcceleration: #{@dev.acceleration.last.inspect}")
-        end
+         end
         Kernel::sleep(1)
       end
     end

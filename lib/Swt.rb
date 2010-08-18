@@ -1,5 +1,15 @@
+require 'rbconfig'
 require 'java'
-require 'jar/swt'
+include Config
+
+if CONFIG["host_cpu"] =~ /x86_64|amd64/
+  path = 'jar64/swt'
+else
+  path = 'jar/swt'
+end
+
+puts path
+require path
 
 module Swt
   import org.eclipse.swt.SWT;

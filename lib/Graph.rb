@@ -46,7 +46,7 @@ class Graph
       series = @series[name]
     end
     array.each do |value|
-      series.add(array.index(value).to_java, value.to_java)
+      series.add(array.index(value), value)
     end
   end
 end
