@@ -1,2 +1,3 @@
-rmss-jruby is actually almost complete rewrite of my another project, rmss (see github repo), to JRuby.
-it is here for backup/educational purposes only, as it requires specific hardware to be useful.
+rmss is a data visualization interface for mss (see repo). It is here for educational purposes only because specific hardware is required to use this software (you can still try and run it).
+
+Discontinued as of 19 Aug 2010.
